@@ -1,0 +1,15 @@
+h1{
+    text-align: center;
+    text-decoration-color: blue;
+}
+
+h2{
+    text-align: center;
+}
+
+ul {
+    list-style-type: circle;
+    font-style: normal;
+    color: blue;
+     }
+

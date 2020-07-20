@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumir un Json</title>
+    <LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+<body>
+
+    <h1 id="titulo">La Siguiente es una lista de personas</h1>
+    <h2 id="subtitulo">(consumidas del archivo "listadepersonas.json")</h2>
+
+    <ul id="Lista"> </ul>
+
+
+
+    <script>
+
+
+        //http Request
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+        var respuesta = JSON.parse(xhttp.responseText); 
+        
+        var lista = respuesta.familia;
+
+          var salida  = '';
+
+          for(var i = 0; i < lista.length; i++) {
+            salida  += `<li>${lista[i].nombre}  ${lista[i].apellido}</li>`;
+          }
+
+          document.getElementById('Lista')
+            .innerHTML = salida ;
+   
+    }
+    };
+    xhttp.open("GET", "listadepersonas.json", true);
+    xhttp.send();
+
+
+    </script>
+    
+</body>
+</html>
